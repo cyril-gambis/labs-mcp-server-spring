@@ -11,6 +11,7 @@
 On Mac, you can use `brew` to install it.
 
 
+## If you start from blank (but you didn't, since I have initialized the project for you)
 The application has been created via:
 https://start.spring.io/
 with the options: Java 25, Maven, Spring Boot 3.5.x and with the libraries:
