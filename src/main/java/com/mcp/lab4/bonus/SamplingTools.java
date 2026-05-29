@@ -19,7 +19,7 @@ public class SamplingTools {
         if (context.sampleEnabled()) {
             // 1. Ask the LLM to classify the need (Sampling)
             CreateMessageResult analysis = context.sample(
-                "Analyze this Decathlon customer message and respond with ONE WORD in uppercase " +
+                "Analyze this customer message and respond with ONE WORD in uppercase " +
                 "from: COMPLAINT (if very dissatisfied), ADVICE (technical need), RETURN (size/product issue): " + userMessage
             );
 
@@ -31,8 +31,8 @@ public class SamplingTools {
             // 2. Conditional business logic in Java (impossible to do cleanly in a single prompt without sampling)
             String businessInstructions = switch (category) {
                 case "COMPLAINT" -> "Apply the 'Satisfied or Satisfied' charter. Offer a 10€ voucher immediately. Maintain a very empathetic tone.";
-                case "ADVICE" -> "Use the Decathlon technical catalog. Emphasize usage benefits and product durability.";
-                case "RETURN" -> "Remind the customer they have 365 days to change their mind with the Decathlon card. Guide them to the in-store kiosk.";
+                case "ADVICE" -> "Use the technical catalog. Emphasize usage benefits and product durability.";
+                case "RETURN" -> "Remind the customer they have 365 days to change their mind with the card. Guide them to the in-store kiosk.";
                 default -> "Respond in a cordial and professional manner.";
             };
 
@@ -70,7 +70,7 @@ public class SamplingTools {
             // 2. Java logic: We could query a price database or apply a rate here
             // Here, we simulate a structured business response
             return """
-                *** DECATHLON WORKSHOP ESTIMATE ***
+                *** WORKSHOP ESTIMATE ***
                 Technical Analysis: %s
                 
                 Note: This estimate is generated via AI assistance. 

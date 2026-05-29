@@ -14,7 +14,7 @@ We will create a Prompt that will depend on the content of a customer message.
 ```java
 if (context.sampleEnabled()) {
    CreateMessageResult analysis = context.sample(
-                "Analyze this Decathlon customer message and respond with ONE WORD in uppercase " +
+                "Analyze this customer message and respond with ONE WORD in uppercase " +
                 "from: COMPLAINT (if very dissatisfied), ADVICE (technical need), RETURN (size/product issue): " + userMessage
             ); 
 }
@@ -29,8 +29,8 @@ Advice: you can trim and "toUpperCase" the answer of the LLM.
 - Depending of the value returned, you generated different instructions:
 ```java
 case "COMPLAINT" -> "Apply the 'Satisfied or Satisfied' charter. Offer a 10€ voucher immediately. Maintain a very empathetic tone.";
-case "ADVICE" -> "Use the Decathlon technical catalog. Emphasize usage benefits and product durability.";
-case "RETURN" -> "Remind the customer they have 365 days to change their mind with the Decathlon card. Guide them to the in-store kiosk.";
+case "ADVICE" -> "Use the technical catalog. Emphasize usage benefits and product durability.";
+case "RETURN" -> "Remind the customer they have 365 days to change their mind with the card. Guide them to the in-store kiosk.";
 default -> "Respond in a cordial and professional manner.";
 ```
 - Return a prompt asking to draft the final response based on the initial userMessage and the category of message
@@ -45,7 +45,7 @@ You can use the following user messages to test:
 
 - "J'ai commandé une veste de randonnée en taille L mais elle est beaucoup trop serrée au niveau des épaules. Est-ce que je peux l'échanger contre une taille XL dans le magasin de Lille Centre ?"
 
-- "Bonjour, j'aimerais savoir à quelle heure ferme le magasin Decathlon Campus ce soir. Merci."
+- "Bonjour, j'aimerais savoir à quelle heure ferme le magasin XXX ce soir. Merci."
 
 ## Sampling tool
 
@@ -62,7 +62,7 @@ Description: `Estimates the cost and parts needed for a repair based on a techni
 - We could then query a price database or apply a rate here. Here, we simulate a structured business response:
 ```java
 """
-*** DECATHLON WORKSHOP ESTIMATE ***
+*** WORKSHOP ESTIMATE ***
 Technical Analysis: <the technical analysis of the first step>
 
 Note: This estimate is generated via AI assistance. 

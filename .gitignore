@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+**/mcp.json
+
+### Secrets & local-only configuration ###
+# OAuth2 metadata and any other well-known resources must never be committed
+src/main/resources/well-known/
+**/well-known/
+# Local overrides and secret-bearing files
+*.local.*
+*-local.*
+*-secret*
+*.secret*
+*.env
+.env
+.env.*
+application-local.yaml
+application-local.yml
+application-secret*.yaml
+application-secret*.yml
